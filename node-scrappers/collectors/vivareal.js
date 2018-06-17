@@ -30,7 +30,7 @@ const handler = (html, url) => {
   const price = currency2num($('.js-detail-rent-price').text().split("/")[0].trim())
   const condominio = currency2num($('.js-detail-condo-price').text())
   const iptu = currency2num($('.js-detail-iptu-price').text())
-  const total = sumCurrencies(price, condominio)
+  const total = sumCurrencies(price, condominio, iptu)
   const phones = $('a.by.js-contact-call').toArray()
     .map(i => i.children[0].data.trim())
   const area = $('.js-detail-area-value').text().split('m')[0]
