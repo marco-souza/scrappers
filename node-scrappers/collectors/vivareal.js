@@ -1,9 +1,6 @@
 #! env node
-const fs = require('fs')
-const fetch = require('node-fetch')
 const cheerio = require('cheerio')
 const iconv = require('iconv-lite')
-const json2csvParser = require('json2csv').parse
 
 const urls = [
   'https://www.vivareal.com.br/imovel/apartamento-2-quartos-centro-bairros-belo-horizonte-37m2-aluguel-RS1000-id-85854614/',
@@ -60,17 +57,13 @@ const handler = (html, url) => {
   }
 }
 
+const prefix = 'vivareal'
 
-Promise.all(urls.map(url =>
-  fetch(url)
-    .then(res => res.text())
-    .then(html => handlerOlx(html, url))
-    .catch(console.error)
-  ))
-  .then(results => {
-    // Save file
-    // csv
-    fs.writeFile('./result-vivareal.csv', json2csvParser(results), console.error)
-    // json
-    fs.writeFile('./result-vivareal.json', JSON.stringify(results, null, 4), console.error)
-  })
+const onFinish = () => console.log("[collector:vivareal] \tDone!")
+
+module.exports = {
+  urls,
+  handler,
+  prefix,
+  onFinish
+}

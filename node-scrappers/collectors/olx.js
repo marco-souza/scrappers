@@ -1,9 +1,6 @@
 #! env node
-const fs = require('fs')
-const fetch = require('node-fetch')
 const cheerio = require('cheerio')
 const iconv = require('iconv-lite')
-const json2csvParser = require('json2csv').parse
 
 const urls = [
   'https://mg.olx.com.br/belo-horizonte-e-regiao/imoveis/aluga-se-apartamento-av-augusto-de-lima-bairro-centro-474044064',
@@ -17,7 +14,7 @@ const urls = [
   'https://mg.olx.com.br/belo-horizonte-e-regiao/imoveis/otimo-apartamento-de-2-quartos-com-armarios-proximo-ao-shopping-cidade-493339056',
 ]
 
-const handlerOlx = (html, url) => {
+const handler = (html, url) => {
 
   const $ = cheerio.load(html)
 
@@ -65,16 +62,13 @@ const handlerOlx = (html, url) => {
 }
 
 
-Promise.all(urls.map(url =>
-  fetch(url)
-    .then(res => res.text())
-    .then(html => handlerOlx(html, url))
-    .catch(console.error)
-  ))
-  .then(results => {
-    // Save file
-    // csv
-    fs.writeFile('./result-olx.csv', json2csvParser(results), console.error)
-    // json
-    fs.writeFile('./result-olx.json', JSON.stringify(results, null, 4), console.error)
-  })
+const prefix = 'olx'
+
+const onFinish = () => console.log("[collector:olx] \tDone!")
+
+module.exports = {
+  urls,
+  handler,
+  prefix,
+  onFinish
+}
