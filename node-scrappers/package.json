@@ -1,0 +1,17 @@
+{
+  "name": "node-scrappers",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "charset-detector": "^0.0.2",
+    "cheerio": "^1.0.0-rc.2",
+    "encoding": "^0.1.12",
+    "iconv": "^2.3.0",
+    "iconv-lite": "^0.4.23",
+    "json2csv": "^4.1.3",
+    "lodash": "^4.17.10",
+    "node-fetch": "^2.1.2",
+    "utf8": "^3.0.0"
+  }
+}
