@@ -63,17 +63,16 @@ const handler = (html, url) => {
 }
 
 
-Promise.all(
-  urls.map(url =>
-    fetch(url)
-      .then(res => res.text())
-      .then(html => handler(html, url))
-      .catch(console.error)
-  )
-).then(results => {
-  // Save file
-  // csv
-  fs.writeFile('./result-vivareal.csv', json2csvParser(results), console.error)
-  // json
-  fs.writeFile('./result-vivareal.json', JSON.stringify(results, null, 4), console.error)
-})
+Promise.all(urls.map(url =>
+  fetch(url)
+    .then(res => res.text())
+    .then(html => handlerOlx(html, url))
+    .catch(console.error)
+  ))
+  .then(results => {
+    // Save file
+    // csv
+    fs.writeFile('./result-vivareal.csv', json2csvParser(results), console.error)
+    // json
+    fs.writeFile('./result-vivareal.json', JSON.stringify(results, null, 4), console.error)
+  })
