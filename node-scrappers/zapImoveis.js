@@ -18,9 +18,7 @@ const urls = [
 
 const handler = (html, url) => {
 
-  const $ = cheerio.load(html, {
-    normalizeWhitespace: false,
-  })
+  const $ = cheerio.load(html)
 
   // const removeCurrency = val =>
   const currency2num = val => typeof val === 'string' && val !== ''

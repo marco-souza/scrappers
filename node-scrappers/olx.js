@@ -19,9 +19,7 @@ const urls = [
 
 const handlerOlx = (html, url) => {
 
-  const $ = cheerio.load(html, {
-    normalizeWhitespace: false,
-  })
+  const $ = cheerio.load(html)
 
   // Collect some data
   const price = $('.OLXad-price').text().trim().split("\n")[0]
