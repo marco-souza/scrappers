@@ -9,7 +9,6 @@ const urls = [
   'https://www.vivareal.com.br/imovel/apartamento-2-quartos-centro-bairros-belo-horizonte-37m2-aluguel-RS1000-id-85854614/',
   'https://www.vivareal.com.br/imovel/apartamento-2-quartos-centro-bairros-belo-horizonte-45m2-aluguel-RS950-id-93415311/',
   'https://www.vivareal.com.br/imovel/apartamento-2-quartos-centro-bairros-belo-horizonte-49m2-aluguel-RS1000-id-83757177/',
-  'https://www.vivareal.com.br/imovel/apartamento-2-quartos-centro-bairros-belo-horizonte-49m2-aluguel-RS1000-id-83757177/',
   'https://www.vivareal.com.br/imovel/apartamento-2-quartos-centro-bairros-belo-horizonte-50m2-aluguel-RS700-id-1037841340/',
   'https://www.vivareal.com.br/imovel/apartamento-2-quartos-centro-bairros-belo-horizonte-60m2-aluguel-RS850-id-93643865/',
   'https://www.vivareal.com.br/imovel/apartamento-2-quartos-centro-bairros-belo-horizonte-62m2-aluguel-RS1000-id-83150989/',
