@@ -44,16 +44,16 @@ const handler = (html, url) => {
   return {
     url,
     "Tipo": tipo,
-    "Código": code,
     "Local": local,
     "Área": area,
     "Quartos": quartos,
+    "Total": total,
     "Preço": price,
     "Condomínio": condominio,
     "IPTU": iptu,
-    "Total": total,
-    "Telefones": phones,
     "Descrição": desc,
+    "Telefones": phones,
+    "Código": code,
   }
 }
 
