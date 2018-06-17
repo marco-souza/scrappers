@@ -1,11 +1,9 @@
 #! env node
 const fs = require('fs')
-const encoding = require('encoding');
 const fetch = require('node-fetch')
 const cheerio = require('cheerio')
 const iconv = require('iconv-lite')
 const json2csvParser = require('json2csv').parse
-const detect = require('charset-detector')
 
 const urls = [
   'https://mg.olx.com.br/belo-horizonte-e-regiao/imoveis/aluga-se-apartamento-av-augusto-de-lima-bairro-centro-474044064',
@@ -21,12 +19,7 @@ const urls = [
 
 const handlerOlx = (html, url) => {
 
-  const $ = cheerio.load(
-    // iconv.decode(html, 'UTF-8'),
-    // iconv.decode(html, 'UTF-32LE'),
-    // iconv.decode(html, 'UTF-32BE'),
-    html,
-    {
+  const $ = cheerio.load(html, {
     normalizeWhitespace: false,
   })
 
@@ -44,12 +37,11 @@ const handlerOlx = (html, url) => {
 
   desc
     .map((i, v) => {
-      // Normalization function
-      // const normalize = str => str
       const encoder = (str, from, to) => iconv.decode(iconv.encode(str, from),to)
 
-      const normalize = str => str.includes('�rea �til')
-        ? "Área Útil"
+      const normalize = str =>
+        str.includes('�rea �til')
+          ? "Área Útil"
 
         : str.includes("Condom�nio")
           ? "Condomínio"
