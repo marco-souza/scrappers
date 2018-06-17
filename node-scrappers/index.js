@@ -1,4 +1,4 @@
-#! env node
+#! /usr/bin/env node
 const fs = require('fs')
 const fetch = require('node-fetch')
 const json2csvParser = require('json2csv').parse
